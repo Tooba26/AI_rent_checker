@@ -25,6 +25,10 @@ def read_root():
 
 @app.post("/predict_rent")
 def predict_rent(data: RentRequest):
-    df = pd.DataFrame([data.dict()])
-    rent = model.predict(df)[0]
-    return {"Predicted_Rent": round(rent, 2)}
+    try:
+        df = pd.DataFrame([data.dict()])
+        rent = model.predict(df)[0]
+        return {"Predicted_Rent": round(rent, 2)}
+    except Exception as e:
+        return {"error": str(e)}
+
