@@ -4,7 +4,7 @@ import joblib
 import pandas as pd
 
 app = FastAPI()
-model = joblib.load('model/house_rent_model.pkl')
+model = joblib.load('rent_api/model/house_rent_model.pkl')
 
 # Define the input data model
 class RentRequest(BaseModel):
